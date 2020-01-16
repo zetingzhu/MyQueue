@@ -1,19 +1,18 @@
 package com.zzt.myqueue;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
+
 import com.zzt.myqueue.entity.MyQueueMessage;
-import com.zzt.myqueue.messageDialog.DialogUtil;
 import com.zzt.myqueue.messageDialog.MyAlertDialog;
-import com.zzt.myqueue.messageDialog.MyBuilder;
-import com.zzt.myqueue.messageDialog.MyDialog;
 import com.zzt.myqueue.messageDialog.MyMessageManage;
 import com.zzt.myqueue.messageUtil.MyBlockingMessageUtil;
 
@@ -23,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
     private final static String TAG = MainActivity.class.getSimpleName();
 
+
+    ViewPager2 viewpager2;
+    ViewPager viewpager1;
+
     Random random = new Random();
 //    PriorityBlockingQueue<MyQueueMessage> queue;
 
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initView();
 
 //        DialogUtil.shwoDialog(this);
 
@@ -49,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, " 这个地方有没有监听到返回监听 alert ");
             }
         });
-        builder1.show() ;
+        builder1.show();
 
 
 //        DialogUtil.shwoDialogList(this);
@@ -149,7 +153,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void addTestDataOne(View v) {
@@ -203,5 +206,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //    }
 
+    private void initView() {
+    }
 
 }
