@@ -8,16 +8,19 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.zzt.myqueue.entity.MyQueueMessage;
 import com.zzt.myqueue.messageDialog.MyAlertDialog;
 import com.zzt.myqueue.messageDialog.MyMessageManage;
 import com.zzt.myqueue.messageUtil.MyBlockingMessageUtil;
+import com.zzt.test.ConfigARouter;
 
 import java.util.Random;
 
+@Route(path = ConfigARouter.MAIN_ACTIVITY)
 public class MainActivity extends AppCompatActivity {
 
     private final static String TAG = MainActivity.class.getSimpleName();
@@ -33,6 +36,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ARouter.getInstance().inject(this);
+
+
+        String t1 = getIntent().getExtras().getString("t1");
+        String t2 = getIntent().getExtras().getString("t2");
+
+
+        Log.e(TAG, "t1:" + t1 + " - t2：" + t2);
 
         initView();
 

@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':javalib', ':myviewpager'
 rootProject.name='MyQueue'
